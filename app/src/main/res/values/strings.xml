@@ -1,0 +1,11 @@
+
+<resources>
+    <string name="app_name">PTT Haiti (QR)</string>
+    <string name="mode_mesh">Mesh only (Wi‑Fi Direct)</string>
+    <string name="mode_p2p">Peer‑to‑Peer via QR</string>
+    <string name="mode_relay">Phone as Relay</string>
+    <string name="create_offer">Create Offer (QR)</string>
+    <string name="scan_offer">Scan Offer</string>
+    <string name="scan_answer">Scan Answer</string>
+    <string name="hold_to_talk">Hold to Talk</string>
+</resources>

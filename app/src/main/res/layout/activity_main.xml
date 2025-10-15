@@ -1,0 +1,21 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+    <TextView android:id="@+id/title" android:text="PTT Haiti (QR)"
+        android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/channel" android:text="liancourt-sos"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnOffer" android:text="@string/create_offer"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button android:id="@+id/btnScanOffer" android:text="@string/scan_offer"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button android:id="@+id/btnScanAnswer" android:text="@string/scan_answer"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button android:id="@+id/pttBtn" android:text="@string/hold_to_talk"
+        android:layout_width="match_parent" android:layout_height="60dp" />
+    <TextView android:id="@+id/status" android:text="Status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:id="@+id/inbox" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        // Extra mirror for WebRTC (helps on some networks)
+        maven { url "https://webrtc.github.io/webrtc-maven-repo" }
+    }
+}
+
+
+rootProject.name = 'PTTHaitiQR'
+include ':app'
