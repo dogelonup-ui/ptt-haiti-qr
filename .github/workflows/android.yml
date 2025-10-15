@@ -1,28 +1,40 @@
 name: Android Debug APK
-
 on:
-  workflow_dispatch:      # allows you to run manually
+  workflow_dispatch:
   push:
-    branches: [ main ]    # or automatically on main branch pushes
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
+
+      # Ensure gradlew is runnable on Linux (and strip CRLF if committed from Windows)
+      - name: Fix gradlew permissions/line-endings
+        run: |
+          sed -i 's/\r$//' gradlew
+          chmod +x gradlew
 
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Gradle cache
-        uses: gradle/gradle-build-action@v2
+      # Install Android SDK cmdline tools + required packages
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
 
+      - name: Install SDK packages
+        run: |
+          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          yes | sdkmanager --licenses
+
+      # Build the debug APK
       - name: Build debug APK
         run: ./gradlew --no-daemon :app:assembleDebug
 
+      # Upload the APK as an artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
